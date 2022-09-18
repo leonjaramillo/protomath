@@ -21,7 +21,7 @@ public class ProtomathApplication {
     //Executes with http://localhost:8080/
     @GetMapping("/")
     public String index() {
-        return String.format("Welcome! This app helps you to get the square or the cube of any number.");
+        return String.format("Welcome! This app helps you to get the square or the cube of any number and to test CI and CD.");
     }    
 
     //Executes with http://localhost:8080/hola or http://localhost:8080/hola?name=John
