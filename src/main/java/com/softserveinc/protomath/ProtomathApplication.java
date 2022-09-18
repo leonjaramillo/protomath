@@ -6,41 +6,41 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-//App para hallar el cuadrado y el cubo de un número
-//Se lanza y se ejecuta con http://localhost:8080 o la URL específica al proveedor cloud
+//App used to get the square and the cube of any number
+//Executes with http://localhost:8080 or the specific vendor's URL
 @SpringBootApplication
 @RestController
 public class ProtomathApplication {
 
-    Calculator calculadora;
+    Calculator calculator;
     
     public static void main(String[] args) {
         SpringApplication.run(ProtomathApplication.class, args);
     }
 
-    //Se ejecuta con http://localhost:8080/
+    //Executes with http://localhost:8080/
     @GetMapping("/")
     public String index() {
-        return String.format("Bienvenido! Esta aplicación ayuda a elevar números a sus potencias y cuenta con otras características como fallar pruebas.");
+        return String.format("Welcome! This app helps you to get the square or the cube of any number.");
     }    
 
-    //Se ejecuta con http://localhost:8080/hola o http://localhost:8080/hola?nombre=John
-    @GetMapping("/hola")
-    public String hola(@RequestParam(value = "nombre", defaultValue = "Mundo") String nombre) {
-        return String.format("Hola %s!", nombre);
+    //Executes with http://localhost:8080/hola or http://localhost:8080/hola?name=John
+    @GetMapping("/hello")
+    public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
+        return String.format("Hello %s!", name);
     }
     
-    //Se ejecuta con http://localhost:8080/cuadrado o http://localhost:8080/cuadrado?numero=5
-    @GetMapping("/cuadrado")
-    public String cuadrado(@RequestParam(value = "numero", defaultValue = "0") Double numero) {
-        this.calculadora = new Calculator();
-        return String.format("El cuadrado de %f es %f", numero, this.calculadora.cuadrado(numero));
+    //Executes with http://localhost:8080/cuadrado or http://localhost:8080/cuadrado?number=5
+    @GetMapping("/square")
+    public String square(@RequestParam(value = "number", defaultValue = "0") Double number) {
+        this.calculator = new Calculator();
+        return String.format("The square of %f is %f", number, this.calculator.square(number));
     }
     
-    //Se ejecuta con http://localhost:8080/cubo o http://localhost:8080/cubo?numero=5
-    @GetMapping("/cubo")
-    public String cubo(@RequestParam(value = "numero", defaultValue = "0") Double numero) {
-        this.calculadora = new Calculator();
-        return String.format("El cubo de %f es %f", numero, this.calculadora.cubo(numero));
+    //Executes with http://localhost:8080/cubo or http://localhost:8080/cubo?number=5
+    @GetMapping("/cube")
+    public String cube(@RequestParam(value = "number", defaultValue = "0") Double number) {
+        this.calculator = new Calculator();
+        return String.format("The cube of %f is %f", number, this.calculator.cube(number));
     }
 }

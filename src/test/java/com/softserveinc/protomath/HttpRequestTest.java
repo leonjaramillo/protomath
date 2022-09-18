@@ -10,7 +10,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//Pruebas de integración
+//Integration tests
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class HttpRequestTest {
 
@@ -21,32 +21,32 @@ public class HttpRequestTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void testSaludoPorDefecto() throws Exception {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/hola",
-                String.class)).contains("Hola Mundo!");
+    public void testDefaultGreeting() throws Exception {
+        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/hello",
+                String.class)).contains("Hello World!");
     }
     
     @Test
-    public void testCuadradoPorDefecto() throws Exception {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/cuadrado",
-                String.class)).containsPattern("El cuadrado de 0[\\.,]000000 es 0[\\.,]000000");
+    public void testDefaultSquare() throws Exception {
+        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/square",
+                String.class)).containsPattern("The square of 0[\\.,]000000 is 0[\\.,]000000");
     }
     
     @Test
-    public void testCuboPorDefecto() throws Exception {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/cubo",
-                String.class)).containsPattern("El cubo de 0[\\.,]000000 es 0[\\.,]000000");
+    public void testDefaultCube() throws Exception {
+        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/cube",
+                String.class)).containsPattern("The cube of 0[\\.,]000000 is 0[\\.,]000000");
     }
     
     @Test
-    public void testCuadradoNumero() throws Exception {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/cuadrado?numero=3",
-                String.class)).containsPattern("El cuadrado de 3[\\.,]000000 es 9[\\.,]000000");
+    public void testNonDefaultSquare() throws Exception {
+        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/square?number=3",
+                String.class)).containsPattern("The square of 3[\\.,]000000 is 9[\\.,]000000");
     }
     
     @Test
-    public void testCuboNumero() throws Exception {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/cubo?numero=3",
-                String.class)).containsPattern("El cubo de 3[\\.,]000000 es 27[\\.,]000000");
+    public void testNonDefaultCube() throws Exception {
+        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/cube?number=3",
+                String.class)).containsPattern("The cube of 3[\\.,]000000 is 27[\\.,]000000");
     }
 }

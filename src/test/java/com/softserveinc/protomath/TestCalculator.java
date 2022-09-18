@@ -3,62 +3,62 @@ package com.softserveinc.protomath;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-//Pruebas unitarias del proyecto
+//Unit tests
 public class TestCalculator {
 
-    //Pruebas unitarias para el cuadrado
+    //Square unit tests
     @Test
-    public void testCuadradoPositivo() {
+    public void testSquareOfPositive() {
         Calculator calc = new Calculator();
-        assertEquals(25.0, calc.cuadrado(5.0), 0);
+        assertEquals(25.0, calc.square(5.0), 0);
     }
 
     @Test
-    public void testCuadradoCero() {
+    public void testSquareOfZero() {
         Calculator calc = new Calculator();
-        assertEquals(0.0, calc.cuadrado(0.0), 0);
+        assertEquals(0.0, calc.square(0.0), 0);
     }
 
     @Test
-    public void testCuadradoUno() {
+    public void testSquareOfOne() {
         Calculator calc = new Calculator();
-        assertEquals(1.0, calc.cuadrado(1.0), 0);
+        assertEquals(1.0, calc.square(1.0), 0);
     }
 
     @Test
-    public void testCuadradoNegativo() {
+    public void testSquareOfNegative() {
         Calculator calc = new Calculator();
-        assertEquals(16.0, calc.cuadrado(-4.0), 0);
+        assertEquals(16.0, calc.square(-4.0), 0);
     }
     
-    //Pruebas unitarias para el cubo
+    //Cube unit tests
     @Test
-    public void testCuboPositivo() {
+    public void testCubeOfPositive() {
         Calculator calc = new Calculator();
-        assertEquals(125.0, calc.cubo(5.0), 0);
+        assertEquals(125.0, calc.cube(5.0), 0);
     }
 
     @Test
-    public void testCuboCero() {
+    public void testCubeOfZero() {
         Calculator calc = new Calculator();
-        assertEquals(0.0, calc.cubo(0.0), 0);
+        assertEquals(0.0, calc.cube(0.0), 0);
     }
 
     @Test
-    public void testCuboUno() {
+    public void testCubeOfOne() {
         Calculator calc = new Calculator();
-        assertEquals(1.0, calc.cubo(1.0), 0);
+        assertEquals(1.0, calc.cube(1.0), 0);
     }
     
     @Test
-    public void testCuboMenosUno() {
+    public void testCubeOfMinusOne() {
         Calculator calc = new Calculator();
-        assertEquals(-1.0, calc.cubo(-1.0), 0);
+        assertEquals(-1.0, calc.cube(-1.0), 0);
     }
 
     @Test
-    public void testCuboNegativo() {
+    public void testCubeOfNegative() {
         Calculator calc = new Calculator();
-        assertEquals(-64.0, calc.cubo(-4.0), 0);
+        assertEquals(-64.0, calc.cube(-4.0), 0);
     }
 }
