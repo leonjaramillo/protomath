@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+      # - command
+  build:
+    commands:
+      - mvn compile
+      - mvn test
+      - mvn install
+      # - command
+  post_build:
+    commands:
+      - mvn package
+      - mv target/protomath-1.0-SNAPSHOT.jar root.jar
+      # - command
+reports:
+  jacoco-report:
+    files:
+      - 'target/site/jacoco/jacoco.xml'
+    file-format: 'JACOCOXML'
+  junit-report:
+    files:
+      - 'target/surefire-reports/*.xml'
+    file-format: 'JUNITXML'
+artifacts:
+  files:
+    - root.jar
